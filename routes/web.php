@@ -52,6 +52,19 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
     });
 
     Route::group(['middleware' => ['auth', 'permission']], function() {
+
+        /*
+         * proceduras routes
+         */
+        Route::get('/proceduras', 'App\Http\Controllers\ProceduraController@index')->name('proceduras.index');
+        Route::get('/proceduras/create', 'App\Http\Controllers\ProceduraController@create')->name('proceduras.create');
+        Route::post('/proceduras', 'App\Http\Controllers\ProceduraController@store')->name('proceduras.store');
+        Route::get('/proceduras/{procedura}/edit', 'App\Http\Controllers\ProceduraController@edit')->name('proceduras.edit');
+        Route::put('/proceduras/{procedura}', 'App\Http\Controllers\ProceduraController@update')->name('proceduras.update');
+        Route::patch('/proceduras/{procedura}', 'App\Http\Controllers\ProceduraController@update');
+        Route::delete('/proceduras/{procedura}', 'App\Http\Controllers\ProceduraController@destroy')->name('proceduras.destroy');
+
+
         /**
          * Logout Routes
          */
