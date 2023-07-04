@@ -2,17 +2,17 @@
 
 @section('content')
     <div class="bg-light p-4 rounded">
-        <h1>Add new user</h1>
+        <h1>Aggiungi utente</h1>
         <div class="lead">
-            Add new user and assign role.
+
         </div>
 
         <div class="container mt-4">
             <form method="POST" action="">
                 @csrf
                 <div class="mb-3">
-                    <label for="name" class="form-label">Name</label>
-                    <input value="{{ old('name') }}"
+                    <label for="name" class="form-label">Nome</label>
+                    <input id="name" value="{{ old('name') }}"
                            type="text"
                            class="form-control"
                            name="name"
@@ -33,9 +33,9 @@
                         <span class="text-danger text-left">{{ $errors->first('email') }}</span>
                     @endif
                 </div>
-                <div class="mb-3">
+                <div class="mb-3" style="display:none">
                     <label for="username" class="form-label">Username</label>
-                    <input value="{{ old('username') }}"
+                    <input id="username" value="{{ old('username') }}"
                            type="text"
                            class="form-control"
                            name="username"
@@ -45,10 +45,18 @@
                     @endif
                 </div>
 
-                <button type="submit" class="btn btn-primary">Save user</button>
-                <a href="{{ route('users.index') }}" class="btn btn-default">Back</a>
+                <button type="submit" class="btn btn-primary">Salva</button>
+                <a href="{{ route('users.index') }}" class="btn btn-default">Indietro</a>
             </form>
         </div>
 
     </div>
+@endsection
+@section('scripts')
+    <script>
+        $('#name').change(function(){
+            $('#username').val($(this).val());
+        });
+    </script>
+
 @endsection

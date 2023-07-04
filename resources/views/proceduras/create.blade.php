@@ -1,6 +1,7 @@
 @extends('layouts.app-master')
 
 @section('content')
+
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">
@@ -65,7 +66,17 @@
                 for (var i = 1; i <= numFirme; i++) {
                     var inputHtml = '<div class="form-group">';
                     inputHtml += '<label for="firmatario' + i + '">Firma ' + i + ':</label>';
-                    inputHtml += '<input type="email" name="firmatario' + i + '" id="firmatario' + i + '" class="form-control" value="" required>';
+                    inputHtml += '<select name="firmatario' + i + '" id="firmatario' + i + '" class="form-control" value="" required>';
+                    inputHtml += '<option></option>';
+                    <?php
+                        foreach($users as $user){
+                            $option = '<option value="'.$user->id.'">'.$user->email.' '.$user->name.'</option>';
+                            echo 'inputHtml += \''.$option.'\';';
+
+                        }
+                    ?>
+                    inputHtml += '</select>';
+
                     inputHtml += '</div>';
 
                     firmaContainer.append(inputHtml);

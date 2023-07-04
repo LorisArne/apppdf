@@ -8,17 +8,17 @@
             <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
                 <li><a href="{{ route('home.index') }}" class="nav-link px-2 text-white">Home</a></li>
                 @auth
-                    @role('Admin')
-                    <li><a href="{{ route('users.index') }}" class="nav-link px-2 text-white">Users</a></li>
-                    <li><a href="{{ route('roles.index') }}" class="nav-link px-2 text-white">Roles</a></li>
-                    @endrole
+                    @if(auth()->user()->can('users.index'))
+                    <li><a href="{{ route('users.index') }}" class="nav-link px-2 text-white">Utenti</a></li>
+                    <li><a href="{{ route('proceduras.index') }}" class="nav-link px-2 text-white">Procedure</a></li>
+                    @endif
                 @endauth
             </ul>
-
+<?php /*
             <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
                 <input type="search" class="form-control form-control-dark" placeholder="Search..." aria-label="Search">
             </form>
-
+*/ ?>
             @auth
                 {{auth()->user()->name}}&nbsp;
                 <div class="text-end">

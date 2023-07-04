@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="bg-light p-4 rounded">
-        <h1>Update user</h1>
+        <h1>Modifica utente</h1>
         <div class="lead">
 
         </div>
@@ -12,7 +12,7 @@
                 @method('patch')
                 @csrf
                 <div class="mb-3">
-                    <label for="name" class="form-label">Name</label>
+                    <label for="name" class="form-label">Nome</label>
                     <input value="{{ $user->name }}"
                            type="text"
                            class="form-control"
@@ -34,7 +34,7 @@
                         <span class="text-danger text-left">{{ $errors->first('email') }}</span>
                     @endif
                 </div>
-                <div class="mb-3">
+                <?php /*<div class="mb-3">
                     <label for="username" class="form-label">Username</label>
                     <input value="{{ $user->username }}"
                            type="text"
@@ -45,8 +45,9 @@
                         <span class="text-danger text-left">{{ $errors->first('username') }}</span>
                     @endif
                 </div>
+ */ ?>
                 <div class="mb-3">
-                    <label for="role" class="form-label">Role</label>
+                    <label for="role" class="form-label">Ruolo</label>
                     <select class="form-control"
                             name="role" required>
                         <option value="">Select role</option>
@@ -62,8 +63,8 @@
                     @endif
                 </div>
 
-                <button type="submit" class="btn btn-primary">Update user</button>
-                <a href="{{ route('users.index') }}" class="btn btn-default">Cancel</button>
+                <button type="submit" class="btn btn-primary">Aggiorna utente</button>
+                <a href="{{ route('users.index') }}" class="btn btn-default">Indietro</button>
             </form>
         </div>
 

@@ -64,6 +64,9 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
         Route::patch('/proceduras/{procedura}', 'App\Http\Controllers\ProceduraController@update');
         Route::delete('/proceduras/{procedura}', 'App\Http\Controllers\ProceduraController@destroy')->name('proceduras.destroy');
 
+        Route::get('/proceduras/{nfirma}/{procedura}/firma', 'App\Http\Controllers\ProceduraController@firmaProcedura')->name('proceduras.firma');
+        Route::post('/proceduras/{nfirma}/{procedura}/firmaupdate', 'App\Http\Controllers\ProceduraController@firmaProceduraUpdate')->name('proceduras.firmaupdate');
+
 
         /**
          * Logout Routes
