@@ -70,10 +70,13 @@ class ProceduraController extends Controller
         }
 
         $procedura->save();
-
+$nFirma = 1;
         $notificaFirmatario1 = User::where('id', $procedura->firmatario1)->first();
         if ($notificaFirmatario1) {
-            Notification::send($notificaFirmatario1, new NuovaProceduraDiFirmaNotification($procedura, 1));
+            //Notification::send($notificaFirmatario1, new NuovaProceduraDiFirmaNotification($procedura, 1));
+            var_dump('invio mail a '.$notificaFirmatario1->email);
+            var_dump('/proceduras/'.$nFirma.'/' . $procedura->id."/firma");
+            die();
         }
 
         return redirect()->route('proceduras.index')->with('success', 'Procedura creata con successo.');
@@ -126,18 +129,14 @@ class ProceduraController extends Controller
     public function firmaProcedura($nFirma, $procedura, Request $request){
 
 //correggere la validazione
+
+
+
         $userId = Auth::id();
-        switch($nFirma){
-            case 1:
-                $request->validate([
-                    'firma1' => 'required|file|mimes:pdf',
-                ]);
-                break;
-        }
-
-
 
         $proceduraObject = Procedura::find($procedura);
+
+
 
         switch($nFirma){
 
@@ -201,7 +200,6 @@ class ProceduraController extends Controller
 
         //mandare la mail di firma
         if($nFirma < $procedura->numero_firme) {
-            $nFirma++;
             switch ($nFirma) {
                 case 1:
                     $userId = $procedura->firmatario2;
@@ -218,17 +216,23 @@ class ProceduraController extends Controller
                 default:
                     die();
             }
+
             $notificaFirmatario = User::where('id', $userId)->first();
 
+
+
             if ($notificaFirmatario !== null && $nFirma < $procedura->numero_firme) {
-                Notification::send($notificaFirmatario, new NuovaProceduraDiFirmaNotification($procedura, $nFirma));
+                //Notification::send($notificaFirmatario, new NuovaProceduraDiFirmaNotification($procedura, $nFirma));
+                dd($notificaFirmatario);
+
             }
         }
 
 
         if ($nFirma == $procedura->numero_firme) {
                 $creator = User::where('id', $procedura->creator)->first();
-                Notification::send($creator, new NuovaProceduraDiFirmaNotificationAdmin($procedura, $nFirma));
+                dd($creator);
+                //Notification::send($creator, new NuovaProceduraDiFirmaNotificationAdmin($procedura, $nFirma));
         }
 
         return view('proceduras.firmato');

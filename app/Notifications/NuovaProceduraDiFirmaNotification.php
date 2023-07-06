@@ -43,7 +43,7 @@ class NuovaProceduraDiFirmaNotification extends Notification
             ->subject('Firma il documento')
             ->greeting('Salve '.$notifiable->name)
             ->line('Firma il documento.')
-            ->action('Scarica il documento', url('/proceduras/1/' . $this->procedura->id."/firma"))
+            ->action('Scarica il documento', url('/proceduras/'.$this->nFirma.'/' . $this->procedura->id."/firma"))
             ->line('Grazie!');
     }
 

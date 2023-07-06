@@ -31,6 +31,8 @@ Route::middleware('auth')->group(function () {
 
 Route::group(['namespace' => 'App\Http\Controllers'], function()
 {
+
+
     /**
      * Home Routes
      */
@@ -53,6 +55,7 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
 
     Route::group(['middleware' => ['auth', 'permission']], function() {
 
+        Route::get('download/{procedura}/{nfirma}', 'DownloadController@downloadDocument')->name('download.file');
         /*
          * proceduras routes
          */

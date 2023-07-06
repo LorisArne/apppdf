@@ -9,7 +9,7 @@
 
         <div class="container mt-4">
             <form method="post" action="{{ route('users.update', $user->id) }}">
-                @method('patch')
+                @method('PATCH')
                 @csrf
                 <div class="mb-3">
                     <label for="name" class="form-label">Nome</label>
@@ -17,7 +17,7 @@
                            type="text"
                            class="form-control"
                            name="name"
-                           placeholder="Name" required>
+                           placeholder="Name" id="name" required>
 
                     @if ($errors->has('name'))
                         <span class="text-danger text-left">{{ $errors->first('name') }}</span>
@@ -34,18 +34,18 @@
                         <span class="text-danger text-left">{{ $errors->first('email') }}</span>
                     @endif
                 </div>
-                <?php /*<div class="mb-3">
+                <div class="mb-3" style="display:none">
                     <label for="username" class="form-label">Username</label>
                     <input value="{{ $user->username }}"
                            type="text"
                            class="form-control"
                            name="username"
-                           placeholder="Username" required>
+                           placeholder="Username"  id="username" required>
                     @if ($errors->has('username'))
                         <span class="text-danger text-left">{{ $errors->first('username') }}</span>
                     @endif
                 </div>
- */ ?>
+
                 <div class="mb-3">
                     <label for="role" class="form-label">Ruolo</label>
                     <select class="form-control"
@@ -69,4 +69,12 @@
         </div>
 
     </div>
+@endsection
+@section('scripts')
+    <script>
+        $('#name').change(function(){
+            $('#username').val($(this).val());
+        });
+    </script>
+
 @endsection

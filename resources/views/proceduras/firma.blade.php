@@ -11,7 +11,33 @@
                         @if($nFirma == 1)
                             <a href="/storage/documents/{{$procedura->documento_da_firmare}}" target="_blank">Scarica il documento da firmare</a><br><br>
                         @else
-                            <a href="/storage/documents/{{$procedura->firma.$nFirma}}" target="_blank">Scarica il documento da firmare</a><br><br>
+                            @switch($nFirma)
+                                @case(2)
+                                    @php
+                                        $daFirmare = $procedura->firma1;
+                                    @endphp
+                                    @break
+                                @case(3)
+                                    @php
+                                      $daFirmare = $procedura->firma2;
+                                    @endphp
+                                    @break
+                                @case(4)
+                                    @php
+                                      $daFirmare = $procedura->firma3;
+                                    @endphp
+                                    @break
+                                @case(5)
+                                    @php
+                                      $daFirmare = $procedura->firma4;
+                                    @endphp
+                                    @break
+                                @default
+                                    @php
+                                      die()
+                                    @endphp
+                            @endswitch
+                            <a href="/storage/documents/{{$daFirmare}}" target="_blank">Scarica il documento da firmare</a><br><br>
                         @endif
                         <form action="{{ route('proceduras.firmaupdate', [$nFirma, $procedura->id]) }}" method="POST" enctype="multipart/form-data">
                             @csrf
