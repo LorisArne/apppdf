@@ -222,8 +222,8 @@ $nFirma = 1;
 
 
             if ($notificaFirmatario !== null && $nFirma < $procedura->numero_firme) {
-                //Notification::send($notificaFirmatario, new NuovaProceduraDiFirmaNotification($procedura, $nFirma));
-                dd($notificaFirmatario);
+                Notification::send($notificaFirmatario, new NuovaProceduraDiFirmaNotification($procedura, $nFirma));
+                //dd($notificaFirmatario);
 
             }
         }
@@ -231,8 +231,8 @@ $nFirma = 1;
 
         if ($nFirma == $procedura->numero_firme) {
                 $creator = User::where('id', $procedura->creator)->first();
-                dd($creator);
-                //Notification::send($creator, new NuovaProceduraDiFirmaNotificationAdmin($procedura, $nFirma));
+                //dd($creator);
+                Notification::send($creator, new NuovaProceduraDiFirmaNotificationAdmin($procedura, $nFirma));
         }
 
         return view('proceduras.firmato');
