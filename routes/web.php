@@ -36,7 +36,9 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
     /**
      * Home Routes
      */
-    Route::get('/', 'HomeController@index')->name('home.index');
+    Route::get('/', function(){
+        return redirect('proceduras');
+    });
 
     Route::group(['middleware' => ['guest']], function() {
         /**
