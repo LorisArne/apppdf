@@ -73,10 +73,10 @@ class ProceduraController extends Controller
 $nFirma = 1;
         $notificaFirmatario1 = User::where('id', $procedura->firmatario1)->first();
         if ($notificaFirmatario1) {
-            //Notification::send($notificaFirmatario1, new NuovaProceduraDiFirmaNotification($procedura, 1));
-            var_dump('invio mail a '.$notificaFirmatario1->email);
-            var_dump('/proceduras/'.$nFirma.'/' . $procedura->id."/firma");
-            die();
+            Notification::send($notificaFirmatario1, new NuovaProceduraDiFirmaNotification($procedura, 1));
+//            var_dump('invio mail a '.$notificaFirmatario1->email);
+//            var_dump('/proceduras/'.$nFirma.'/' . $procedura->id."/firma");
+//            die();
         }
 
         return redirect()->route('proceduras.index')->with('success', 'Procedura creata con successo.');
