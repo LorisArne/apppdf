@@ -72,7 +72,7 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
         Route::get('/proceduras/{nfirma}/{procedura}/firma', 'App\Http\Controllers\ProceduraController@firmaProcedura')->name('proceduras.firma');
         Route::post('/proceduras/{nfirma}/{procedura}/firmaupdate', 'App\Http\Controllers\ProceduraController@firmaProceduraUpdate')->name('proceduras.firmaupdate');
 
-
+        Route::get('/download/{filename}', 'App\Http\Controllers\ProceduraController@downloadFile')->name('file.download');
         /**
          * Logout Routes
          */

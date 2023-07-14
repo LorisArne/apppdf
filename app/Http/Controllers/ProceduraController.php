@@ -238,6 +238,15 @@ $nFirma = 1;
         return view('proceduras.firmato');
     }
 
+    public function downloadFile($filename)
+    {
+        $file = storage_path('app/public/documents/' . $filename);
 
+        if (file_exists($file)) {
+            return response()->download($file, $filename);
+        } else {
+            abort(404, 'File not found');
+        }
+    }
 
 }

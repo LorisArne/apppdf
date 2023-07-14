@@ -37,7 +37,8 @@
                                       die()
                                     @endphp
                             @endswitch
-                            <a href="/storage/documents/{{$daFirmare}}" target="_blank">Scarica il documento da firmare</a><br><br>
+
+                            <a href="{{ route('file.download', ['filename' => $daFirmare]) }}" target="_blank">Scarica il documento da firmare</a><br><br>
                         @endif
                         <form action="{{ route('proceduras.firmaupdate', [$nFirma, $procedura->id]) }}" method="POST" enctype="multipart/form-data">
                             @csrf

@@ -18,7 +18,7 @@
                                 @switch($i)
                                     @case(1)
                                         @if($procedura->firma1 !== null)
-                                            <a target="_blank" href="/storage/documents/{{$procedura->firma1}}">Scarica il documento</a>
+                                            <a target="_blank" href="{{ route('file.download', ['filename' => $procedura->firma1]) }}">Scarica il documento</a>
                                         @else
                                             Da Firmare!
                                         @endif
@@ -30,7 +30,7 @@
                                         @break
                                     @case(2)
                                         @if($procedura->firma2 !== null)
-                                            <a target="_blank" href="/storage/documents/{{$procedura->firma2}}">Scarica il documento</a>
+                                            <a target="_blank" href="{{ route('file.download', ['filename' => $procedura->firma2]) }}">Scarica il documento</a>
                                         @else
                                             Da Firmare!
                                         @endif
@@ -43,7 +43,7 @@
                                         @break
                                     @case(3)
                                         @if($procedura->firma3 !== null)
-                                            <a target="_blank" href="/storage/documents/{{$procedura->firma3}}">Scarica il documento</a>
+                                            <a target="_blank" href="{{ route('file.download', ['filename' => $procedura->firma3]) }}">Scarica il documento</a>
                                         @else
                                             Da Firmare!
                                         @endif
@@ -55,7 +55,7 @@
                                         @break
                                     @case(4)
                                         @if($procedura->firma3 !== null)
-                                            <a target="_blank" href="/storage/documents/{{$procedura->firma4}}">Scarica il documento</a>
+                                            <a target="_blank" href="{{ route('file.download', ['filename' => $procedura->firma4]) }}">Scarica il documento</a>
                                         @else
                                             Da Firmare!
                                         @endif
@@ -67,7 +67,7 @@
                                         @break
                                     @case(5)
                                         @if($procedura->firma5 !== null)
-                                            <a target="_blank" href="/storage/documents/{{$procedura->firma5}}">Scarica il documento</a>
+                                            <a target="_blank" href="{{ route('file.download', ['filename' => $procedura->firma5]) }}">Scarica il documento</a>
                                         @else
                                             Da Firmare!
                                         @endif

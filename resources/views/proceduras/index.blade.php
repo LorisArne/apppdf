@@ -36,7 +36,8 @@
                                         <td>{{ $procedura->numero_firme }}</td>
                                         <td>
                                             @if ($procedura->documento_da_firmare)
-                                                <a href="{{ asset('storage/documents/' . $procedura->documento_da_firmare) }}" target="_blank">Apri Documento</a>
+
+                                                <a href="{{ route('file.download', ['filename' => $procedura->documento_da_firmare]) }}" target="_blank">Apri Documento</a>
                                             @else
                                                 Nessun Documento
                                             @endif
