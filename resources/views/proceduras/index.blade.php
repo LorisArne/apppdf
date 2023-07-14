@@ -37,13 +37,13 @@
                                         <td>
                                             @if ($procedura->documento_da_firmare)
 
-                                                <a href="{{ route('file.download', ['filename' => $procedura->documento_da_firmare]) }}" target="_blank">Apri Documento</a>
+                                                <a href="{{ route('file.download', ['filename' => $procedura->documento_da_firmare]) }}" target="_blank">Apri Documento iniziale</a>
                                             @else
                                                 Nessun Documento
                                             @endif
                                         </td>
                                         <td>
-                                            <a href="{{ route('proceduras.edit', $procedura->id) }}" class="btn btn-primary">Modifica</a>
+                                            <a href="{{ route('proceduras.edit', $procedura->id) }}" class="btn btn-primary">Vedi</a>
                                             <form action="{{ route('proceduras.destroy', $procedura->id) }}" method="POST" style="display: inline-block;">
                                                 @csrf
                                                 @method('DELETE')

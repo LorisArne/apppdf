@@ -14,7 +14,7 @@
 
                             <div class="form-group">
                                 <label for="firma{{$i}}">Firma {{$i}}</label>
-                                <input type="file" name="firma{{$i}}" id="firma{{$i}}" class="form-control-file" accept=".pdf">
+{{--                                <input type="file" name="firma{{$i}}" id="firma{{$i}}" class="form-control-file" accept=".pdf">--}}
                                 @switch($i)
                                     @case(1)
                                         @if($procedura->firma1 !== null)
@@ -83,7 +83,8 @@
                             </div>
                             @endfor
 
-                            <button type="submit" class="btn btn-primary">Aggiorna</button>
+{{--                            <button type="submit" class="btn btn-primary">Aggiorna</button>--}}
+                            <a href="{{route('proceduras.index')}}" >Back</a>
                         </form>
                     </div>
                 </div>
