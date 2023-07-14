@@ -17,7 +17,7 @@ class NuovaProceduraDiFirmaNotification extends Notification
     public function __construct($procedura, $nFirma)
     {
         $this->procedura = $procedura;
-        $this->nFirma = $nFirma;
+        $this->nFirma = $nFirma+1;
     }
 
     /**

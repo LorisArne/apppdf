@@ -216,12 +216,12 @@ $nFirma = 1;
                 default:
                     die();
             }
-            $nFirma++;
+
             $notificaFirmatario = User::where('id', $userId)->first();
 
 
 
-            if ($notificaFirmatario !== null && $nFirma <= $procedura->numero_firme) {
+            if ($notificaFirmatario !== null && $nFirma < $procedura->numero_firme) {
                 Notification::send($notificaFirmatario, new NuovaProceduraDiFirmaNotification($procedura, $nFirma));
                 //dd($notificaFirmatario);
 
