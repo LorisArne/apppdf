@@ -9,7 +9,7 @@
 
                     <div class="card-body">
                         @if($nFirma == 1)
-                            <a href="/storage/documents/{{$procedura->documento_da_firmare}}" target="_blank">Scarica il documento da firmare</a><br><br>
+                            <a href=" {{route('file.download', ['filename' => $procedura->documento_da_firmare]) }}" target="_blank">Scarica il documento da firmare</a><br><br>
                         @else
                             @switch($nFirma)
                                 @case(2)
