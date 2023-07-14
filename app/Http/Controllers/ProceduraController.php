@@ -218,7 +218,7 @@ $nFirma = 1;
                     $nFirma++;
                     break;
                 default:
-                    die();
+                    $nFirma++;
             }
 
             $notificaFirmatario = User::where('id', $userId)->first();
@@ -233,7 +233,7 @@ $nFirma = 1;
         }
 
 
-        if ($nFirma == $procedura->numero_firme) {
+        if ($nFirma > $procedura->numero_firme) {
                 $creator = User::where('id', $procedura->creator)->first();
                 //dd($creator);
                 Notification::send($creator, new NuovaProceduraDiFirmaNotificationAdmin($procedura, $nFirma));
