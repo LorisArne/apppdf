@@ -199,7 +199,7 @@ $nFirma = 1;
         $procedura->save();
 
         //mandare la mail di firma
-        if($nFirma < $procedura->numero_firme) {
+
             switch ($nFirma) {
                 case 1:
                     $userId = $procedura->firmatario2;
@@ -219,7 +219,7 @@ $nFirma = 1;
                     break;
                 default:
                     $nFirma++;
-                    
+
             }
 
             $notificaFirmatario = User::where('id', $userId)->first();
@@ -231,7 +231,7 @@ $nFirma = 1;
                 //dd($notificaFirmatario);
 
             }
-        }
+
 
 
         if ($nFirma > $procedura->numero_firme) {
