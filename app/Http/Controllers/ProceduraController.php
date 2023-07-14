@@ -166,7 +166,7 @@ $nFirma = 1;
     }
 
     public function firmaProceduraUpdate($nFirma, $idProcedura, Request $request){
-        $procedura = Procedura::find($idProcedura)->first();
+        $procedura = Procedura::where('id', $idProcedura)->first();
 
         $keyFile = "firma".$nFirma;
 
