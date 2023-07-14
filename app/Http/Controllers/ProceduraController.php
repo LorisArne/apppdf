@@ -203,15 +203,19 @@ $nFirma = 1;
             switch ($nFirma) {
                 case 1:
                     $userId = $procedura->firmatario2;
+                    $nFirma++;
                     break;
                 case 2:
                     $userId = $procedura->firmatario3;
+                    $nFirma++;
                     break;
                 case 3:
                     $userId = $procedura->firmatario4;
+                    $nFirma++;
                     break;
                 case 4:
                     $userId = $procedura->firmatario5;
+                    $nFirma++;
                     break;
                 default:
                     die();
@@ -221,7 +225,7 @@ $nFirma = 1;
 
 
 
-            if ($notificaFirmatario !== null && $nFirma < $procedura->numero_firme) {
+            if ($notificaFirmatario !== null && $nFirma <= $procedura->numero_firme) {
                 Notification::send($notificaFirmatario, new NuovaProceduraDiFirmaNotification($procedura, $nFirma));
                 //dd($notificaFirmatario);
 
