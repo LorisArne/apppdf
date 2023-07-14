@@ -84,7 +84,7 @@
                             @endfor
 
 {{--                            <button type="submit" class="btn btn-primary">Aggiorna</button>--}}
-                            <a href="{{route('proceduras.index')}}" >Back</a>
+                            <a class="btn btn-primary" href="{{route('proceduras.index')}}" >Back</a>
                         </form>
                     </div>
                 </div>
