@@ -5,6 +5,7 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
+                    <div class="card-header">Procedura: {{ $procedura->nome_procedura }}</div>
                     <div class="card-header">Scarica il documento, firmalo e ricaricalo</div>
 
                     <div class="card-body">

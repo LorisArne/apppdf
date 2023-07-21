@@ -30,7 +30,7 @@ class UsersController extends Controller
      */
     public function create()
     {
-        return view('users.create');
+        return view('users.create', ['roles' => Role::latest()->get()]);
     }
 
     /**
@@ -48,6 +48,9 @@ class UsersController extends Controller
         $user->create(array_merge($request->validated(), [
             'password' => 'test'
         ]));
+        $lastUser = User::latest()->first();
+
+        $lastUser->syncRoles($request->get('role'));
 
         return redirect()->route('users.index')
             ->withSuccess(__('User created successfully.'));

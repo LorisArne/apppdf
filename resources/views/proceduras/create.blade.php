@@ -66,7 +66,7 @@
                 for (var i = 1; i <= numFirme; i++) {
                     var inputHtml = '<div class="form-group">';
                     inputHtml += '<label for="firmatario' + i + '">Firma ' + i + ':</label>';
-                    inputHtml += '<select name="firmatario' + i + '" id="firmatario' + i + '" class="form-control" value="" required>';
+                    inputHtml += '<select name="firmatario' + i + '" id="firmatario' + i + '" class="form-control firmatario" value="" required>';
                     inputHtml += '<option></option>';
                     <?php
                         foreach($users as $user){
@@ -80,10 +80,14 @@
                     inputHtml += '</div>';
 
                     firmaContainer.append(inputHtml);
+                    $('.firmatario').select2();
                 }
             });
         });
     </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/js/select2.min.js"></script>
+    <!-- Aggiungi il CSS di Select2 dal CDN di jsDelivr -->
 
 
 @endsection
