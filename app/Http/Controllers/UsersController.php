@@ -30,7 +30,18 @@ class UsersController extends Controller
      */
     public function create()
     {
-        return view('users.create', ['roles' => Role::latest()->get()]);
+        $user = auth()->user();
+        $isSuperAdmin = 0;
+
+        if($user->roles[0]->name == "Superadmin"){
+            $isSuperAdmin = 1;
+        }
+        $roles = Role::latest()->get();
+        if($isSuperAdmin == 0){
+            $roles = Role::where('name', '!=', 'Superadmin')->get();
+        }
+
+        return view('users.create', ['roles' => $roles]);
     }
 
     /**
