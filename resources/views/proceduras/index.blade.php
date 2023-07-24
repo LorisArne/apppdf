@@ -21,24 +21,16 @@
                             <table class="table">
                                 <thead>
                                 <tr>
-                                    <th>ID e azioni</th>
-                                    <th>Nome Procedura</th>
-                                    <th>N Firme</th>
-                                    <th>Documento da Firmare</th>
 
+                                    <th>Nome Procedura</th>
+                                    <th>Documento da Firmare</th>
+                                    <th></th>
                                 </tr>
                                 </thead>
                                 <tbody>
                                 @foreach ($proceduras as $procedura)
                                     <tr>
-                                        <td>{{ $procedura->id }}<br>  <a href="{{ route('proceduras.edit', $procedura->id) }}" class="btn btn-primary">Vedi</a>
-                                            <br><br><form action="{{ route('proceduras.destroy', $procedura->id) }}" method="POST" style="display: inline-block;">
-                                                @csrf
-                                                @method('DELETE')
-                                                <button type="submit" class="btn btn-danger" onclick="return confirm('Sei sicuro di voler eliminare questa procedura?')">Elimina</button>
-                                            </form></td>
                                         <td>{{ $procedura->nome_procedura }}</td>
-                                        <td>{{ $procedura->numero_firme }}</td>
                                         <td>
                                             @if ($procedura->documento_da_firmare)
 
@@ -48,7 +40,12 @@
                                             @endif
                                         </td>
                                         <td>
-
+                                            <a href="{{ route('proceduras.edit', $procedura->id) }}" class="btn btn-primary">Vedi</a>
+                                            <br><br><form action="{{ route('proceduras.destroy', $procedura->id) }}" method="POST" style="display: inline-block;">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button type="submit" class="btn btn-danger" onclick="return confirm('Sei sicuro di voler eliminare questa procedura?')">Elimina</button>
+                                            </form>
                                         </td>
                                     </tr>
                                 @endforeach
