@@ -40,11 +40,12 @@ class NuovaProceduraDiFirmaNotification extends Notification
 
 
         return (new MailMessage)
-            ->subject('Firma il documento')
-            ->greeting('Salve '.$notifiable->name)
-            ->line('Firma il documento.')
+            ->subject('Firma il documento '.$this->procedura->nome_procedura)
+            ->greeting('Buongiorno, '.$notifiable->name)
+            ->line('Chiediamo cortesemente di firmare il documento '.$this->procedura->nome_procedura.' al link indicato' )
             ->action('Scarica il documento', url('/proceduras/'.$this->nFirma.'/' . $this->procedura->id."/firma"))
-            ->line('Grazie!');
+            ->line('Grazie')
+            ->line('Staff Studi GL');
     }
 
     /**

@@ -19,8 +19,13 @@ class UsersController extends Controller
     public function index()
     {
         $users = User::latest()->paginate(10);
+        $user = auth()->user();
+        $isSuperAdmin = 0;
 
-        return view('users.index', compact('users'));
+        if($user->roles[0]->name == "Superadmin"){
+            $isSuperAdmin = 1;
+        }
+        return view('users.index', ['users' => $users, 'isSuperAdmin' => $isSuperAdmin]);
     }
 
     /**

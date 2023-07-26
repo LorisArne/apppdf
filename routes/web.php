@@ -40,6 +40,10 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
         return redirect('proceduras');
     });
 
+    Route::get('/dashboard', function(){
+        return redirect('proceduras');
+    });
+
     Route::group(['middleware' => ['guest']], function() {
         /**
          * Register Routes

@@ -5,7 +5,7 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header">Modifica Procedura</div>
+                    <div class="card-header">{{$procedura->nome_procedura}}</div>
 <?php  use App\Models\User; ?>
                     <div class="card-body">
                         <form action="{{ route('proceduras.update', $procedura->id) }}" method="POST" enctype="multipart/form-data">
@@ -13,6 +13,7 @@
                             @for($i=1; $i<=$procedura->numero_firme; $i++ )
 
                             <div class="form-group">
+                                <p>
                                 <label for="firma{{$i}}">Firma {{$i}}</label>
 {{--                                <input type="file" name="firma{{$i}}" id="firma{{$i}}" class="form-control-file" accept=".pdf">--}}
                                 @switch($i)
@@ -80,6 +81,7 @@
                                     @default
                                         @break
                                 @endswitch
+                                </p>
                             </div>
                             @endfor
 

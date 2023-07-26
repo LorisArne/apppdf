@@ -39,6 +39,7 @@
 @include('layouts.partials.navbar')
 
 <main class="container mt-5">
+    <div style="text-align:center"><img style="width:200px" src="/assets/logo.jpg"></div>
     @yield('content')
 </main>
 
