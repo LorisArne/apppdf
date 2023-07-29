@@ -32,7 +32,7 @@ class ProceduraController extends Controller
         $request->validate([
             'nome_procedura' => 'required',
             'numero_firme' => 'required|integer|min:1|max:5',
-            'documento_da_firmare' => 'required|mimes:pdf',
+//            'documento_da_firmare' => 'required|mimes:pdf',
             'firmatario1' => 'integer',
             'firmatario2' => 'integer',
             'firmatario3' => 'integer',
@@ -90,10 +90,10 @@ class ProceduraController extends Controller
     public function update(Request $request, Procedura $procedura)
     {
         $data = $request->validate([
-            'firma1' => 'nullable|file|mimes:pdf',
-            'firma2' => 'nullable|file|mimes:pdf',
-            'firma3' => 'nullable|file|mimes:pdf',
-            'firma4' => 'nullable|file|mimes:pdf',
+//            'firma1' => 'nullable|file|mimes:pdf',
+//            'firma2' => 'nullable|file|mimes:pdf',
+//            'firma3' => 'nullable|file|mimes:pdf',
+//            'firma4' => 'nullable|file|mimes:pdf',
             'numero_firme' => 'required|integer|min:1|max:5',
         ]);
 

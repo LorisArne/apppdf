@@ -37,15 +37,16 @@ class NuovaProceduraDiFirmaNotification extends Notification
     public function toMail(object $notifiable): MailMessage
     {
 
-
-
+        $urlFirma = url('/proceduras/'.$this->nFirma.'/' . $this->procedura->id."/firma");
+        $urlLogo = url('/assets/logo.jpg');
         return (new MailMessage)
             ->subject('Firma il documento '.$this->procedura->nome_procedura)
-            ->greeting('Buongiorno, '.$notifiable->name)
-            ->line('Chiediamo cortesemente di firmare il documento '.$this->procedura->nome_procedura.' al link indicato' )
-            ->action('Scarica il documento', url('/proceduras/'.$this->nFirma.'/' . $this->procedura->id."/firma"))
-            ->line('Grazie')
-            ->line('Staff Studi GL');
+//            ->greeting('Buongiorno, '.$notifiable->name)
+//            ->line('Chiediamo cortesemente di firmare il documento '.$this->procedura->nome_procedura.' al link indicato' )
+//            ->action('Scarica il documento', $urlFirma)
+//            ->line('Grazie')
+//            ->line('Staff Studi GL')
+            ->view('mail.mail', ['urlFirma' => $urlFirma, 'urlLogo' => $urlLogo, 'notifiable' => $notifiable]);
     }
 
     /**
