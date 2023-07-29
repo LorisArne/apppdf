@@ -39,7 +39,7 @@
                 <tr>
                     <td class="header"
                         style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative; padding: 25px 0; text-align: center;">
-                        <img stlye="width:200px;" src="{{$urlLogo}}">
+                        <img style="width:200px;" src="{{$urlLogo}}">
                     </td>
                 </tr>
 
