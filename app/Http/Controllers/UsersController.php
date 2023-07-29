@@ -95,10 +95,21 @@ class UsersController extends Controller
      */
     public function edit(User $user)
     {
+        $loggedUser = auth()->user();
+
+     	$isSuperAdmin = 0;
+
+        if($loggedUser->roles[0]->name == "Superadmin"){
+            $isSuperAdmin = 1;
+        }
+        $roles = Role::latest()->get();
+        if($isSuperAdmin == 0){
+            $roles = Role::where('name', '!=', 'Superadmin')->get();
+        }
         return view('users.edit', [
             'user' => $user,
             'userRole' => $user->roles->pluck('name')->toArray(),
-            'roles' => Role::latest()->get()
+            'roles' => $roles
         ]);
     }
 

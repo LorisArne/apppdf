@@ -38,7 +38,7 @@ class NuovaProceduraDiFirmaNotificationAdmin extends Notification
         $nFirma = $this->nFirma;
         $nFirma = $nFirma -1;
         return (new MailMessage)
-            ->subject('Procedura di firma portata a termine!')
+            ->subject('Procedura di firma portata a termine! - '.$this->procedura->nome_procedura)
             ->greeting('Salve '.$notifiable->name)
             ->line('La procedura di firma "'.$this->procedura->nome_procedura.'" è stata portata a termine con la firma numero '.$nFirma)
             ->action('Scarica il documento', url('/proceduras/' . $this->procedura->id."/edit"))

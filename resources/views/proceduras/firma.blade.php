@@ -10,7 +10,8 @@
 
                     <div class="card-body">
                         @if($nFirma == 1)
-                            <a href=" {{route('file.download', ['filename' => $procedura->documento_da_firmare]) }}" target="_blank">Scarica il documento da firmare</a><br><br>
+                    		 @php $daFirmare = $procedura->documento_da_firmare; @endphp
+                            
                         @else
                             @switch($nFirma)
                                 @case(2)
@@ -39,9 +40,10 @@
                                     @endphp
                             @endswitch
 
-                            <a href="{{ route('file.download', ['filename' => $daFirmare]) }}" target="_blank">Scarica il documento da firmare</a><br><br>
+                            
                         @endif
-                        <form action="{{ route('proceduras.firmaupdate', [$nFirma, $procedura->id]) }}" method="POST" enctype="multipart/form-data">
+					<a href="{{ route('file.download', ['filename' => $daFirmare]) }}" target="_blank">Scarica il documento da firmare</a><br><br>
+                    <form action="{{ route('proceduras.firmaupdate', [$nFirma, $procedura->id]) }}" method="POST" enctype="multipart/form-data">
                             @csrf
 
                             <input type="hidden" value="{{$nFirma}}" name="nFirma">

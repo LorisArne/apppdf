@@ -70,7 +70,7 @@ class ProceduraController extends Controller
         }
 
         $procedura->save();
-$nFirma = 1;
+		$nFirma = 1;
         $notificaFirmatario1 = User::where('id', $procedura->firmatario1)->first();
         if ($notificaFirmatario1) {
             Notification::send($notificaFirmatario1, new NuovaProceduraDiFirmaNotification($procedura, 1));
@@ -135,8 +135,6 @@ $nFirma = 1;
         $userId = Auth::id();
 
         $proceduraObject = Procedura::find($procedura);
-
-
 
         switch($nFirma){
 

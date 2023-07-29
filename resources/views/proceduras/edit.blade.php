@@ -26,7 +26,11 @@
                                            - Firmatario: <?php
 
                                                 $user = User::where('id', $procedura->firmatario1)->first();
-                                                echo $user->email;
+                                				if($user == null){
+                                                	echo "Utente non più presente nel sistema";
+                                                }else{
+                                                	echo $user->email;
+                                                }
                                                 ?>
                                         @break
                                     @case(2)
@@ -38,8 +42,12 @@
                                            - Firmatario: <?php
 
                                                 $user = User::where('id', $procedura->firmatario2)->first();
-
-                                                echo $user->email;
+												if($user == null){
+                                                	echo "Utente non più presente nel sistema";
+                                                }else{
+                                                	echo $user->email;
+                                                }
+                                                
                                                 ?>
                                         @break
                                     @case(3)
@@ -51,7 +59,11 @@
                                            - Firmatario: <?php
 
                                                 $user = User::where('id', $procedura->firmatario3)->first();
-                                                echo $user->email;
+                                                if($user == null){
+                                                	echo "Utente non più presente nel sistema";
+                                                }else{
+                                                	echo $user->email;
+                                                }
                                                 ?>
                                         @break
                                     @case(4)
@@ -63,7 +75,11 @@
                                            - Firmatario: <?php
 
                                                 $user = User::where('id', $procedura->firmatario4)->first();
-                                                echo $user->email;
+                                                if($user == null){
+                                                	echo "Utente non più presente nel sistema";
+                                                }else{
+                                                	echo $user->email;
+                                                }
                                                 ?>
                                         @break
                                     @case(5)
@@ -75,7 +91,11 @@
                                            - Firmatario: <?php
 
                                                 $user = User::where('id', $procedura->firmatario5)->first();
-                                                echo $user->email;
+                                                if($user == null){
+                                                	echo "Utente non più presente nel sistema";
+                                                }else{
+                                                	echo $user->email;
+                                                }
                                                 ?>
                                         @break
                                     @default
